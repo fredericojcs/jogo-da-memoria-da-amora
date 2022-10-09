@@ -15,6 +15,18 @@ indiceDaPrimeiraCartaRevelada = null
 imagemDaPrimeiraCartaRevelada = null
 pendente = false
 
+function embaralhar() {
+    quantidade = ordemDasCartas.length;
+    for (indice = 0; indice < quantidade; indice = indice + 1) {
+        aleatório = Math.floor(Math.random() * quantidade)
+        original = ordemDasCartas[indice]
+        ordemDasCartas[indice] = ordemDasCartas[aleatório]
+        ordemDasCartas[aleatório] = original
+    }
+}
+
+embaralhar()
+
 function revelarCarta(indice) {
     if (pendente === true) {
         alert("Calma, meu filho")
@@ -53,12 +65,6 @@ function revelarCarta(indice) {
                 pendente = false
                 frase.innerHTML = "Encontre os pares"
             }, 1000)
-
-
         }
-
-
     }
-
-
 }
